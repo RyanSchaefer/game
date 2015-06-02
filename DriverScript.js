@@ -92,7 +92,7 @@ function smelt(resource, product){
 	cokeCoal.amount++;
 	coal.amount=coal.amount - 2;
 	}
-	else{
+	else if (product.special==null){
 	if (coal.amount>=1&&resource.amount>=1){
 			 product.amount++;
 			    coal.amount--;
