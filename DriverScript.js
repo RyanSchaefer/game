@@ -139,14 +139,27 @@ function mine(machine, product){
 
 /*STORY ANIMATIONS*/
 function printLetterByLetter(destination, message, speed){
-    var i = 0;
-    var interval = setInterval(function(){
-        document.getElementById(destination).innerHTML += message.charAt(i);
-        i++;
-        if (i > message.length){
-        clearInterval(interval);
-        }
-    }, speed);
+	var p = printLetterByLetter.intervals;
+	if (!p)
+		printLetterByLetter.intervals = p = {};
+
+	if (p[destination])
+		clear();
+
+	function clear() {
+		clearInterval(p[destination]);
+		delete p[destination];
+	}
+
+	var i = 0;
+	var elem = document.getElementById(destination);
+	setInterval(function(){
+		elem.innerHTML += message.charAt(i);
+		i++;
+		if (i > message.length){
+			clear();
+		}
+	}, speed);
 }
 
 function fadeIn(element, speed){
