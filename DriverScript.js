@@ -153,7 +153,7 @@ function printLetterByLetter(destination, message, speed){
 
 	var i = 0;
 	var elem = document.getElementById(destination);
-	setInterval(function(){
+	p[destination] = setInterval(function(){
 		elem.innerHTML += message.charAt(i);
 		i++;
 		if (i > message.length){
