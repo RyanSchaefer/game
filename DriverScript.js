@@ -47,7 +47,7 @@ function cheatMode(on){
 	}
 }
 cheatMode(0);
-//change to run with (1) or without(0) cheats
+//change to run with (1) or without (0) cheats
 
 
 /*STORY FUNCITONS*/
@@ -60,12 +60,12 @@ function storyAdvance(){
 		storyStage=1;
 	}
 	else if (storyStage==1){
-		story="<<Send || Class : Report || Priority : 0>> $?Begin? Resources : Present // Surface // SubSurface // Deep || Water : Present // Surface // SubSurface || Life : Present // Class2 // DangerToLife || Assesment : Disengage // ## Reason: Following protocol 23-60-555 automatic disengage in progress, full distruction of presence of colony waiting confirmation. ##$ <<END>> ";
+		story="<<Send || Class : Report || Priority : 0>> $?Begin? Resources : Present // Surface // SubSurface // Deep || Water : Present // Surface // SubSurface || Life : Present // Class2 // DangerToLife || Assesment : Disengage // ## Reason: Following protocol 23-60-555 automatic disengage in progress, full distruction of presence of colony awaiting confirmation. ##$ <<END>> ";
 		printLetterByLetter("story", story, 1);
 	storyStage=2;
 	}
 	else if (storyStage==2){
-	story= "<<Reply || Class : Orders || Priority : 14 || ##EXECUTE IMMIDIATLY## ||EstTravelTime : 1.23x10^6 Y>>$?Begin? Operation : ##Last Hope## || Override : Active || Orders : ##Prepare for sustained population in excess of 1 million persons, adequet materials must be present, disregard life readings.##$<END>>";
+	story= "<<Reply || Class : Orders || Priority : 14 || ##EXECUTE IMMEDIATELY## ||EstTravelTime : 1.23x10^6 Y>>$?Begin? Operation : ##Last Hope## || Override : Active || Orders : ##Prepare for sustained population in excess of 1 million persons. Adequate materials must be present. Disregard life readings.##$<END>>";
 	printLetterByLetter("story", story, 1);
 	storyStage = 3;
 	}
