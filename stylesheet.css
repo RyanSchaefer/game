@@ -81,3 +81,6 @@ color:white;
 -ms-user-select: none;
 user-select: none;
 }
+.pointer{
+cursor: pointer;
+}
