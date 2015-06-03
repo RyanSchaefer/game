@@ -7,58 +7,58 @@
 	</script>
 	<body>
 	<div id="push" style="display:block;"></div>
-	<div id="story" style="display:table;width:100%;height:10%;text-align:center;opacity:1;" onclick="storyAdvance()">Click To Begin</div>
+	<div id="story" class="no-select" style="display:table;width:100%;height:10%;text-align:center;opacity:1;" onclick="storyAdvance()">Click To Begin</div>
 		<div id="mineTitle" style="display:none;opacity:0;text-align:center;"><h1>Mines / Crafting</h1></div>
-		<table id="resourceGrid" style="display:none;">
+		<table id="resourceGrid" class="no-select" style="display:none;">
 			<tr id="teirIresources" style="opacity:0;">
-				<td id="stone" onclick="stone.amount++"></td>
-				<td id="copper" onclick="copper.amount++"></td>
-				<td id="iron" onclick="iron.amount++"></td>
-				<td id="coal" onclick="coal.amount++"></td>
+				<td id="stone" class="pointer" onclick="stone.amount++"></td>
+				<td id="copper" class="pointer" onclick="copper.amount++"></td>
+				<td id="iron" class="pointer" onclick="iron.amount++"></td>
+				<td id="coal" class="pointer" onclick="coal.amount++"></td>
 			</tr>
 		
 			<tr id="tierIIresources" style="opacity:0;display:none;">
-				<td id="smeltStone" onclick="smelt(stone, hardStone)"></td>
-				<td id="smeltCopper" onclick="smelt(copper, copperPlate)"></td>
-				<td id="smeltIron" onclick="smelt(iron, ironPlate)"></td>
-				<td id="smeltCoal" onclick="smelt(coal, cokeCoal)"></td>
+				<td id="smeltStone" class="pointer" onclick="smelt(stone, hardStone)"></td>
+				<td id="smeltCopper" class="pointer" onclick="smelt(copper, copperPlate)"></td>
+				<td id="smeltIron" class="pointer" onclick="smelt(iron, ironPlate)"></td>
+				<td id="smeltCoal" class="pointer" onclick="smelt(coal, cokeCoal)"></td>
 			</tr>
 			<tr id="tierIIbasicResources" style="opacity:0;display:none;">
-				<td id="mineQuartz" onclick="quartz.amount++;"></td>
-				<td id="mineGold" onclick="gold.amount++;"></td>
-				<td id="mineTin" onclick="tin.amount++;"></td>
-				<td id="mineAnthracite" onclick="anthracite.amount++;"></td>
+				<td id="mineQuartz" class="pointer" onclick="quartz.amount++;"></td>
+				<td id="mineGold" class="pointer" onclick="gold.amount++;"></td>
+				<td id="mineTin" class="pointer" onclick="tin.amount++;"></td>
+				<td id="mineAnthracite" class="pointer" onclick="anthracite.amount++;"></td>
 			</tr>
 		</table>
 		
-		<div id="machines" style="text-align:center;display:none;opacity:0">
+		<div id="machines" class="no-select" style="text-align:center;display:none;opacity:0">
 			<h1> Machines </h1>
 			<table style="width:90%;table-layout:fixed;text-align:center;margin-left:5%;margin-right:5%;">
 				<tr id="mines">
-					<td onclick="addTeirIMachine(10, 10, stoneMine)" id="stoneMine">   </td>
-					<td onclick="addTeirIMachine(10, 10, copperMine)" id="copperMine"> </td>
-					<td onclick="addTeirIMachine(10, 10, ironMine)" id="ironMine">     </td>
-					<td onclick="addTeirIMachine(10, 10, coalMine)" id="coalMine">     </td>
+					<td class="pointer" onclick="addTeirIMachine(10, 10, stoneMine)" id="stoneMine">   </td>
+					<td class="pointer" onclick="addTeirIMachine(10, 10, copperMine)" id="copperMine"> </td>
+					<td class="pointer" onclick="addTeirIMachine(10, 10, ironMine)" id="ironMine">     </td>
+					<td class="pointer" onclick="addTeirIMachine(10, 10, coalMine)" id="coalMine">     </td>
 				</tr>
 				<tr id="mineSwitches">
-					<td onclick="machineOn(stoneMine, this)" style="background:red">STATUS : OFF</td>
-					<td onclick="machineOn(copperMine, this)" style="background:red">STATUS : OFF</td>
-					<td onclick="machineOn(ironMine, this)" style="background:red">STATUS : OFF</td>
-					<td onclick="machineOn(coalMine, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(stoneMine, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(copperMine, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(ironMine, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(coalMine, this)" style="background:red">STATUS : OFF</td>
 				</tr>
 
 				<tr id="smelters" style="display:none;opacity:0;">
-					<td id="stoneSmelter" onclick="addTeirIMachine(10, 10, stoneSmelter)"></td>
-					<td id="copperSmelter" onclick="addTeirIMachine(10, 10, copperSmelter)"></td>
-					<td id="ironSmelter" onclick="addTeirIMachine(10, 10, ironSmelter)" ></td>
-					<td id="coalSmelter" onclick="addTeirIMachine(10, 10, coalSmelter)" ></td>
+					<td class="pointer" id="stoneSmelter" onclick="addTeirIMachine(10, 10, stoneSmelter)"></td>
+					<td class="pointer" id="copperSmelter" onclick="addTeirIMachine(10, 10, copperSmelter)"></td>
+					<td class="pointer" id="ironSmelter" onclick="addTeirIMachine(10, 10, ironSmelter)" ></td>
+					<td class="pointer" id="coalSmelter" onclick="addTeirIMachine(10, 10, coalSmelter)" ></td>
 				</tr>
 
 				<tr id="smelterSwitches" style="display:none;opacity:0;">
-					<td onclick="machineOn(stoneSmelter, this)" style="background:red">STATUS : OFF</td>
-					<td onclick="machineOn(copperSmelter, this)" style="background:red">STATUS : OFF</td>
-					<td onclick="machineOn(ironSmelter, this)" style="background:red">STATUS : OFF</td>
-					<td onclick="machineOn(coalSmelter, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(stoneSmelter, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(copperSmelter, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(ironSmelter, this)" style="background:red">STATUS : OFF</td>
+					<td class="pointer" onclick="machineOn(coalSmelter, this)" style="background:red">STATUS : OFF</td>
 				</tr>
 			</table>
 		</div>
@@ -66,10 +66,10 @@
 		<!-- for future implementation
 		<div id="trade" style="text-align:center;display:none;"><h1>Trade</h1><p onclick="clearText(this)">Trade with other colonies, all resources traded are digital certificates since the materials themselves would take decades to arrive. Resources are sought after based on two characteristics: price and distance from your colony. As you upgrade trade you will become more trusted as a trade partner and be able to trade more materials. <b class="red">(click to clear)</b></p></div>
 		-->
-		<div style="text-align:center;display:none;opacity:0;" id="research"> 
+		<div class="no-select" style="text-align:center;display:none;opacity:0;" id="research"> 
 			<h1>Research</h1>
-			<p onclick="researchSmelting()" id="currentResearch"><b class="red">Research Smelting</b> (+smelting, -10 stone, -10 copper, -10 iron)</p>
-			<p onclick="researchTrade()" id="currentResearch2"></p>
+			<p class="pointer" onclick="researchSmelting()" id="currentResearch"><b class="red">Research Smelting</b> (+smelting, -10 stone, -10 copper, -10 iron)</p>
+			<p class="pointer" onclick="researchTrade()" id="currentResearch2"></p>
 		</div>
 		<div style="padding-top:45%;width:100%;text-align:center"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://vsquiddevv.github.io/game" data-text="Just found this cool new game at" data-size="large" data-dnt="true">Tweet</a><pre style="display:inline;">  contact.devsquid@gmail.com</pre></div>
 	</body>
