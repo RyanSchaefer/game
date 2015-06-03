@@ -65,7 +65,7 @@ function storyAdvance(){
 	storyStage=2;
 	}
 	else if (storyStage==2){
-	story= "<<Reply || Class : Orders || Priority : 14 || ##EXECUTE IMMIDIATLY## ||EstTravelTime : 1.23x10^6 Y>>$?Begin? Operation : ##Last Hope## || Override : Active || Orders : ##Prepare for sustained population in excess of 1 million persons, adequet materials must be present, disregard life readings.##$<END>>";
+	story= "<<Reply || Class : Orders || Priority : 14 || ##EXECUTE IMMIDIATLY## ||EstTravelTime : 1.23x10^6 Y>>$?Begin? Operation : ##Last Hope## || Override : Active || Orders : ##Prepare for sustained population in excess of 1 million persons, adequate materials must be present, disregard life readings.##$<END>>";
 	printLetterByLetter("story", story, 1);
 	storyStage = 3;
 	}
