@@ -224,7 +224,11 @@ function researchTeirII(){
 	}
 }
 
-window.setInterval(function(){
+function researchTrading(){
+//add this in later
+}
+
+window.setInterval(function tick(){
 updateAmount(stone, "stone", "stone");
 updateAmount(iron, "iron", "iron");
 updateAmount(copper, "copper", "copper");
@@ -258,7 +262,7 @@ if (stone.amount>=10||coal.amount>=10||copper.amount>=10||iron.amount>=10){
 }
 }, 1);
 
-window.setInterval(function ch(){
+window.setInterval(function check(){
 mine(stoneMine, stone);
 mine(copperMine, copper);
 mine(ironMine, iron);
