@@ -210,8 +210,6 @@ function researchAutoSmelting(){
 		ironPlate.amount = ironPlate.amount -25;
 		document.getElementById("smelters").style.display = "table-row";
 		document.getElementById("smelterSwitches").style.display = "table-row";
-		fadeIn("smelters", 20);
-		fadeIn("smelterSwitches", 20);
 		document.getElementById("currentResearch").innerHTML="Research New Extraction Techniques(+new ores, -1000 coke coal, -1000 hard stone, -1000 copper plate, -1000 iron plate)"
 		document.getElementById("currentResearch").onclick = researchTeirII;
 		document.getElementById("story").innerHTML="";
