@@ -46,7 +46,7 @@ function cheatMode(on){
 		storyStage=3;
 	}
 }
-cheatMode(1);
+cheatMode(0);
 //change to run with (1) or without (0) cheats
 
 
