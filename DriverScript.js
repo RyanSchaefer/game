@@ -187,6 +187,7 @@ function researchSmelting(){
 		stone.amount=stone.amount-10;
 		iron.amount=iron.amount-10;
 		copper.amount=copper.amount-10;
+		document.getElementById("story").innerHTML="";
 		printLetterByLetter("story", "One of this and one of these.", 100);
 		fadeIn(story, 20);
 	}
@@ -200,6 +201,9 @@ function researchMines(){
 		fadeIn("machines", 20);
 		document.getElementById("currentResearch").innerHTML="<b class=\"red\">Research Auto-Smelting</b>(+Smelters, -25 copper plates, -25 iron Plates)";
 		document.getElementById("currentResearch").onclick=researchAutoSmelting;
+		document.getElementById("story").innerHTML="";
+		printLetterByLetter("story", "10 of this and 10 of those... hmm ... We might need something to power it.", 100);
+		fadeIn(story, 20);
 	}
 }
 function researchAutoSmelting(){
