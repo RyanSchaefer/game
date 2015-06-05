@@ -187,6 +187,8 @@ function researchSmelting(){
 		stone.amount=stone.amount-10;
 		iron.amount=iron.amount-10;
 		copper.amount=copper.amount-10;
+		printLetterByLetter("story", "One of this and one of these.", 100);
+		fadeIn(story, 20);
 	}
 }
 
