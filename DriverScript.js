@@ -60,7 +60,7 @@ function storyAdvance(){
 		storyStage=1;
 	}
 	else if (storyStage==1){
-		story="<<Send || Class : Report || Priority : 0>> $?Begin? Resources : Present // Surface // SubSurface // Deep || Water : Present // Surface // SubSurface || Life : Present // Class2 // DangerToLife || Assesment : Disengage // ## Reason: Following protocol 23-60-555 automatic disengage in progress, full distruction of presence of colony awaiting confirmation. ##$ <<END>> ";
+		story="<<Send || Class : Report || Priority : 0>> $?Begin? Resources : Present // Surface // SubSurface // Deep || Water : Present // Surface // SubSurface || Life : Present // Class2 // DangerToLife || Assesment : Disengage // ## Reason: Following protocol 23-60-555 automatic disengage in progress, full destruction of presence of colony awaiting confirmation. ##$ <<END>> ";
 		printLetterByLetter("story", story, 1);
 	storyStage=2;
 	}
