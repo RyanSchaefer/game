@@ -189,7 +189,6 @@ function researchSmelting(){
 		copper.amount=copper.amount-10;
 		document.getElementById("story").innerHTML="";
 		printLetterByLetter("story", "One of this and one of these.", 100);
-		fadeIn(story, 20);
 	}
 }
 
@@ -203,7 +202,6 @@ function researchMines(){
 		document.getElementById("currentResearch").onclick=researchAutoSmelting;
 		document.getElementById("story").innerHTML="";
 		printLetterByLetter("story", "10 of this and 10 of those... hmm ... We might need something to power it.", 100);
-		fadeIn(story, 20);
 	}
 }
 function researchAutoSmelting(){
@@ -216,6 +214,8 @@ function researchAutoSmelting(){
 		fadeIn("smelterSwitches", 20);
 		document.getElementById("currentResearch").innerHTML="Research New Extraction Techniques(+new ores, -1000 coke coal, -1000 hard stone, -1000 copper plate, -1000 iron plate)"
 		document.getElementById("currentResearch").onclick = researchTeirII;
+		document.getElementById("story").innerHTML="";
+		printLetterByLetter("story", "Just move this part over here ... lets power this the same way.", 100);
 	}
 }
 
@@ -227,6 +227,8 @@ function researchTeirII(){
 		ironPlate.amount = ironPlate.amount - 1000;
 		document.getElementById("tierIIbasicResources").style.display="table-row";
 		fadeIn("tierIIbasicResources", 20);
+		document.getElementById("story").innerHTML="";
+		printLetterByLetter("story", "We may need these someday.", 100);
 	}
 }
 
