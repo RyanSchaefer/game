@@ -56,17 +56,17 @@ function storyAdvance(){
 	story="";
 	if (storyStage==0){
 		story="<<Get Time>> SYSTEM TIME 3Y;345D;4x10^3AD || EARTH TIME : N/A <<END>>";
-		printLetterByLetter("story", story, 20);
+		printLetterByLetter("story", story, 50);
 		storyStage=1;
 	}
 	else if (storyStage==1){
 		story="<<Send || Class : Report || Priority : 0>> $?Begin? Resources : Present // Surface // SubSurface // Deep || Water : Present // Surface // SubSurface || Life : Present // Class2 // DangerToLife || Assesment : Disengage // ## Reason: Following protocol 23-60-555 automatic disengage in progress, full destruction of presence of colony awaiting confirmation. ##$ <<END>> ";
-		printLetterByLetter("story", story, 1);
+		printLetterByLetter("story", story, 50);
 	storyStage=2;
 	}
 	else if (storyStage==2){
 	story= "<<Reply || Class : Orders || Priority : 14 || ##EXECUTE IMMEDIATELY## ||EstTravelTime : 1.23x10^6 Y>>$?Begin? Operation : ##Last Hope## || Override : Active || Orders : ##Prepare for sustained population in excess of 1 million persons. Adequate materials must be present. Disregard life readings.##$<END>>";
-	printLetterByLetter("story", story, 1);
+	printLetterByLetter("story", story, 50);
 	storyStage = 3;
 	}
 	else if (storyStage==3){
@@ -74,7 +74,7 @@ function storyAdvance(){
 	document.getElementById("resourceGrid").style.display="table";
 	document.getElementById("mineTitle").style.display="block";
 	fadeIn("mineTitle", 20);
-	fadeIn("teirIresources", 20);
+	fadeIn("teirIresources", 50);
 	document.getElementById("story").style.opacity=0;
 	storyStage = 4;
 	}
