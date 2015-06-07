@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html>
-	<head><link rel="stylesheet" href="stylesheet.css" type="text/stylesheet"></head>
+	<head><link rel="stylesheet" href="stylesheet.css" type="text/stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-	<script src="DriverScript.js">
-	</script>
+	<script src="DriverScript.js"></script>
+	<title>##Operation Last Hope##</title>
+	</head>
 	<body>
 	<div id="push" style="display:block;"></div>
 	<div id="story" class="no-select" style="display:table;width:100%;height:10%;text-align:center;opacity:1;" onclick="storyAdvance()">Click To Begin</div>
@@ -63,9 +64,7 @@
 			</table>
 		</div>
 		
-		<!-- for future implementation
 		<div id="trade" style="text-align:center;display:none;"><h1>Trade</h1><p onclick="clearText(this)">Trade with other colonies, all resources traded are digital certificates since the materials themselves would take decades to arrive. Resources are sought after based on two characteristics: price and distance from your colony. As you upgrade trade you will become more trusted as a trade partner and be able to trade more materials. <b class="red">(click to clear)</b></p></div>
-		-->
 		<div class="no-select" style="text-align:center;display:none;opacity:0;" id="research"> 
 			<h1>Research</h1>
 			<p class="pointer" onclick="researchSmelting()" id="currentResearch"><b class="red">Research Smelting</b> (+smelting, -10 stone, -10 copper, -10 iron)</p>
