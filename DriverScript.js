@@ -83,8 +83,13 @@ function storyAdvance(){
 
 
 /*BASIC FUNCTIONS*/
-function updateAmount(varAmount, unit, elementUpdated){
-document.getElementById(elementUpdated).innerHTML = varAmount.amount+" "+unit;
+function updateAmount(varAmount, unit, elementUpdated, white){
+	if(white==0){
+		document.getElementById(elementUpdated).innerHTML = varAmount.amount+" "+unit;
+	}
+	else if(white==1){
+		document.getElementById(elementUpdated).innerHTML ="<b class=\"white\">" varAmount.amount+" "+unit+"\"</b>\"";
+	}
 }
 
 function smelt(resource, product){
@@ -235,26 +240,26 @@ function researchTrading(){
 }
 
 window.setInterval(function tick(){
-updateAmount(stone, "stone", "stone");
-updateAmount(iron, "iron", "iron");
-updateAmount(copper, "copper", "copper");
-updateAmount(coal, "coal", "coal");
-updateAmount(hardStone, "hard stones", "smeltStone");
-updateAmount(copperPlate, "copper plates", "smeltCopper");
-updateAmount(ironPlate, "iron plates", "smeltIron");
-updateAmount(cokeCoal, "coke coal", "smeltCoal");
-updateAmount(ironMine, "iron mines", "ironMine");
-updateAmount(coalMine, "coal mines", "coalMine");
-updateAmount(stoneMine, "stone mines", "stoneMine");
-updateAmount(copperMine, "copper mines", "copperMine");
-updateAmount(stoneSmelter, "stone smelters", "stoneSmelter");
-updateAmount(copperSmelter, "copper smelters", "copperSmelter");
-updateAmount(ironSmelter, "iron smelters", "ironSmelter");
-updateAmount(coalSmelter, "coal smelters", "coalSmelter");
-updateAmount(quartz, "quartz", "mineQuartz");
-updateAmount(tin, "tin", "mineTin");
-updateAmount(anthracite, "anthracite", "mineAnthracite");
-updateAmount(gold, "gold", "mineGold");
+updateAmount(stone, "stone", "stone", 0);
+updateAmount(iron, "iron", "iron", 0);
+updateAmount(copper, "copper", "copper", 0);
+updateAmount(coal, "coal", "coal", 1);
+updateAmount(hardStone, "hard stones", "smeltStone", 0);
+updateAmount(copperPlate, "copper plates", "smeltCopper",0 );
+updateAmount(ironPlate, "iron plates", "smeltIron", 0);
+updateAmount(cokeCoal, "coke coal", "smeltCoal", 0);
+updateAmount(ironMine, "iron mines", "ironMine", 0);
+updateAmount(coalMine, "coal mines", "coalMine", 0);
+updateAmount(stoneMine, "stone mines", "stoneMine", 0);
+updateAmount(copperMine, "copper mines", "copperMine", 0);
+updateAmount(stoneSmelter, "stone smelters", "stoneSmelter", 0);
+updateAmount(copperSmelter, "copper smelters", "copperSmelter", 0);
+updateAmount(ironSmelter, "iron smelters", "ironSmelter", 0);
+updateAmount(coalSmelter, "coal smelters", "coalSmelter", 0);
+updateAmount(quartz, "quartz", "mineQuartz", 0);
+updateAmount(tin, "tin", "mineTin", 0);
+updateAmount(anthracite, "anthracite", "mineAnthracite", 1);
+updateAmount(gold, "gold", "mineGold", 0);
 if (stone.amount>=10||coal.amount>=10||copper.amount>=10||iron.amount>=10){
 	if(storyStage==4){
 		if(eventCompleted==0){
