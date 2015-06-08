@@ -88,7 +88,7 @@ function updateAmount(varAmount, unit, elementUpdated, white){
 		document.getElementById(elementUpdated).innerHTML = varAmount.amount+" "+unit;
 	}
 	else if(white==1){
-		document.getElementById(elementUpdated).innerHTML ="<b class=\"white\">" varAmount.amount+" "+unit+"\"</b>\"";
+		document.getElementById(elementUpdated).innerHTML ="<b class=\"white\">"+varAmount.amount+" "+unit+"\"</b>\"";
 	}
 }
 
