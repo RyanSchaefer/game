@@ -235,10 +235,10 @@ function researchTeirII(){
 	}
 }
 
-function researchTrading(){
-	if(stone.amount>=10){
-		stone.amount = stone.amount - 10;
-		document.getElementById("trading").style.display="block";
+function researchTrade(){
+	if(stone.amount>=25){
+		stone.amount = stone.amount - 25;
+		document.getElementById("trade").style.display="block";
 	}
 }
 
