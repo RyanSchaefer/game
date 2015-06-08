@@ -236,7 +236,10 @@ function researchTeirII(){
 }
 
 function researchTrading(){
-//add this in later
+	if(stone.amount>=10){
+		stone.amount = stone.amount - 10;
+		document.getElementById("trading").style.display="block";
+	}
 }
 
 window.setInterval(function tick(){
