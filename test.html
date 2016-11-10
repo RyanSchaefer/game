@@ -1,0 +1,27 @@
+<script>
+window.onerror = function(e){alert(e)}
+class queue{
+	constructor(){
+		this.queued = []
+		self = this
+	}
+	play(){
+		if (this.queued.length > 0){
+			var [func, args] = this.queued.shift()
+			func(args)
+		}
+	}
+	queue(func, args){
+		alert("second added")
+	}
+	begin(){
+		setInterval(function (){self.play()}, 1)
+	}
+}
+//x.add_e(alert, "hello")
+//x.play()
+var x = new queue()
+x.queue(alert, "hello world")
+x.queue(alert, "hello again")
+x.begin()
+</script>

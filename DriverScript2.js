@@ -1,38 +1,47 @@
 /* 
 ######################################################################
-##(C)Squid Dev 2015                                                 ##
+##(C)Ryan Schaefer 2016                                             ##
 ##have a suggestion or see a bug contact: contact.devsquid@gmail.com##
 ######################################################################
 */
-
-
-
-//Don't touch the amount part ;) that would be cheating 
-var stone  = {amount:0};
-var copper = {amount:0};
-var iron   = {amount:0};
-var coal   = {amount:0};
-var hardStone   = {amount:0};
-var copperPlate = {amount:0};
-var ironPlate   = {amount:0};
-var cokeCoal    = {amount:0, special:1};
-var stoneMine  = {amount : 0, onOff : 0 };
-var copperMine = {amount : 0, onOff : 0 };
-var ironMine   = {amount : 0, onOff : 0 };
-var coalMine   = {amount : 0, onOff : 0 };
-var stoneSmelter = {amount : 0, onOff : 0};
-var copperSmelter = {amount : 0, onOff : 0};
-var ironSmelter = {amount : 0, onOff : 0};
-var coalSmelter = {amount : 0, onOff : 0};
-var quartz = {amount : 0};
-var tin = {amount : 0};
-var gold = {amount : 0};
-var anthracite = {amount : 0};
 var story  = "";
 var storyStage=0;
 var eventCompleted=0;
+var resources = {}
+var machines = {}
+// EX - 'primative_mine':{'type':{}}, 'primative_smelter':{'type':{}} 
 
+window.onerror = function(e){alert(e)}
 
+// Queues functions that need to be called sequentially 
+// Args should be an object and func should take that object
+// and use it as its args
+class queue{
+	constructor(){
+		this.queued = {}
+		var self = this
+	}
+	process(){
+		if (Object.keys(x.queued).length > 0){
+			var [func, args] = this.queued[0]
+			alert(func)
+			delete this.queued[0]
+			func(args)
+		}
+	}
+	queue(func, args){
+		if (Object.keys(x.queued).length > 0){
+			this.queued[Object.keys(x.queued).length + 1] = [func, args]
+		}
+		else{
+			alert("added")
+			this.queued[0] = [func, args]
+		}
+	}
+	begin(){
+		setInterval(function (){self.process()}, 1)
+	}
+}
 
 /*STORY FUNCITONS*/
 function storyAdvance(){
