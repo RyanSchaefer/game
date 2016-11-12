@@ -1,7 +1,7 @@
 /* 
 ######################################################################
 ##(C)Ryan Schaefer 2016                                             ##
-##have a suggestion or see a bug contact: contact.devsquid@gmail.com##
+##have a suggestion or see a bug: contact.devsquid@gmail.com        ##
 ######################################################################
 */
 var story  = "";
@@ -12,36 +12,85 @@ var machines = {}
 // EX - 'primative_mine':{'type':{}}, 'primative_smelter':{'type':{}} 
 
 window.onerror = function(e){alert(e)}
-
+// Story Animations
 // Queues functions that need to be called sequentially 
 // Args should be an object and func should take that object
 // and use it as its args
+var block = false;
 class queue{
+	
 	constructor(){
-		this.queued = {}
+		this.queued = []
 		var self = this
 	}
+	
 	process(){
-		if (Object.keys(x.queued).length > 0){
-			var [func, args] = this.queued[0]
-			alert(func)
-			delete this.queued[0]
+		if (this.queued.length > 0 && !block){
+			var [func, args] = this.queued.shift()
 			func(args)
 		}
 	}
+	
 	queue(func, args){
-		if (Object.keys(x.queued).length > 0){
-			this.queued[Object.keys(x.queued).length + 1] = [func, args]
-		}
-		else{
-			alert("added")
-			this.queued[0] = [func, args]
-		}
+		this.queued.push([func, args])
 	}
+	
 	begin(){
 		setInterval(function (){self.process()}, 1)
 	}
+	
 }
+
+function PLBL(obj){
+    block = true;
+	var destination = obj['destination']
+	var message = obj['message']
+	var speed = obj['speed']
+	var p = PLBL.intervals;
+	if (!p)
+		PLBL.intervals = p = {};
+
+	if (p[destination])
+		clear();
+
+	function clear() {
+		clearInterval(p[destination]);
+		delete p[destination];
+	}
+	
+	var i = 0;
+	var elem = document.getElementById(destination);
+	p[destination] = setInterval(function(){
+		elem.innerHTML += message.charAt(i);
+		i++;
+		if (i > message.length){
+			block = false;
+            clear();
+		}
+	}, speed);
+}
+
+function fadeIn(element, speed){
+var fade=0;
+	var interval2 =setInterval(function(){
+		fade=fade+.01;
+		document.getElementById(element).style.opacity=fade;
+		if (fade > 1){
+			clearInterval(interval2);
+		}
+	}, speed)
+}
+
+function clearText(element){
+element.innerHTML="";
+}
+function click(obj){
+    document.getElementById(obj["element"]).onclick = storyAdvance
+}
+function unclick(obj){
+    document.getElementById(obj["element"]).onclick = ""
+}
+main_queue = new queue();
 
 /*STORY FUNCITONS*/
 function storyAdvance(){
@@ -49,7 +98,9 @@ function storyAdvance(){
 	story="";
 	if (storyStage==0){
 		story="<<Get Time>> SYSTEM TIME 3Y;345D;4x10^3AD || EARTH TIME : N/A <<END>>";
-		printLetterByLetter("story", story, 50);
+        main_queue.queue(unclick, {"element":"story"})
+		main_queue.queue(PLBL, {"element":"story", "story":story, "speed":50});
+        main_queue.queue(click, {"element":"story"})
 		storyStage=1;
 	}
 	else if (storyStage==1){
