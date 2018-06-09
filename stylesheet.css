@@ -1,96 +1,136 @@
-table#resourceGrid{
-text-align:center;
-margin-left:5%;
-margin-right:5%;
-width:90%;
-table-layout: fixed;
-margin-top:5px;
+html, body {
+    height: 100%;
+    margin: 0;
 }
-td{
-width:100px;
-height:50px;
+
+div#screen {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
 }
-body{
-font-family: 'Cutive Mono', monospace;
-font-size: 13pt;
+
+.clickable div#story {
+    text-align: center;
+    width: 100%;
 }
-div#push{
-width:100%;
-padding-top:30% ;
+
+table {
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    table-layout: fixed;
+    margin-top: 5px;
 }
-td#stone{
-background:#E0E0D1;
+
+#resources, #machines,  #upgrades,
+#tierIIResources #machineUpgrades, #fuelSourceUpgrades,
+#biology, #cloning, #generations
+{
+    display:none; !important
 }
-td#iron{
-background:#999999;
+
+td {
+    width: 22.5%;
+    height: 50px;
 }
-td#copper{
-background:#B26B00;
+
+body {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 13pt;
 }
-td#coal{
-background:#333333;
+
+td#stone {
+    background: #E0E0D1;
 }
-td#smeltCoal{
-background: #EBF0F5;
+
+td#iron {
+    background: #999999;
 }
-td#smeltIron{
-background: #85A3C2;
+
+td#copper {
+    background: #B26B00;
 }
-td#smeltCopper{
-background: #FF9900;
+
+td#coal {
+    background: #333333;
 }
-td#smeltStone{
-background: #B89470;
+
+td#cokeCoal {
+    background: #EBF0F5;
 }
-td#stoneMine{
-background:#7B7B7B;
+
+td#ironPlate {
+    background: #85A3C2;
 }
-td#copperMine{
-background:#7B7B7B;
+
+td#copperPlate {
+    background: #FF9900;
 }
-td#ironMine{
-background:#7B7B7B;
+
+td#hardStone {
+    background: #B89470;
 }
-td#coalMine{
-background:#7B7B7B;
+
+td#stoneMine {
+    background: #7B7B7B;
 }
-td#mineQuartz{
-background:#EEEEEE;
+
+td#copperMine {
+    background: #7B7B7B;
 }
-td#mineTin{
-background:#C6C7C9;
+
+td#ironMine {
+    background: #7B7B7B;
 }
-td#mineAnthracite{
-background: #1A1A1A;
+
+td#coalMine {
+    background: #7B7B7B;
 }
-td#mineGold{
-background:#FFD633;
+
+td#mineQuartz {
+    background: #EEEEEE;
 }
-.red{
-color:red;
+
+td#mineTin {
+    background: #C6C7C9;
 }
-.white{
-color:white;
+
+td#mineAnthracite {
+    background: #1A1A1A;
 }
-.no-select{
--webkit-user-select: none;
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+
+td#mineGold {
+    background: #FFD633;
 }
-.pointer{
-cursor: pointer;
+
+.red {
+    color: red;
 }
-.clickable{
--webkit-user-select: none;
--webkit-touch-callout: none;
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-cursor: pointer;
+
+.white {
+    color: white;
+}
+
+.no-select {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.clickable {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }

@@ -7,11 +7,11 @@
 var story  = "";
 var storyStage=0;
 var eventCompleted=0;
-var resources = {}
-var machines = {}
+var resources = {};
+var machines = {};
 // EX - 'primative_mine':{'type':{}}, 'primative_smelter':{'type':{}} 
 
-window.onerror = function(e){alert(e)}
+window.onerror = function(e){alert(e)};
 // Story Animations
 // Queues functions that need to be called sequentially 
 // Args should be an object and func should take that object
@@ -20,13 +20,13 @@ var block = false;
 class queue{
 	
 	constructor(){
-		this.queued = []
+		this.queued = [];
 		var self = this
 	}
 	
 	process(){
 		if (this.queued.length > 0 && !block){
-			var [func, args] = this.queued.shift()
+			var [func, args] = this.queued.shift();
 			func(args)
 		}
 	}
@@ -43,9 +43,9 @@ class queue{
 
 function PLBL(obj){
     block = true;
-	var destination = obj['destination']
-	var message = obj['message']
-	var speed = obj['speed']
+	var destination = obj['destination'];
+	var message = obj['message'];
+	var speed = obj['speed'];
 	var p = PLBL.intervals;
 	if (!p)
 		PLBL.intervals = p = {};
@@ -98,9 +98,9 @@ function storyAdvance(){
 	story="";
 	if (storyStage==0){
 		story="<<Get Time>> SYSTEM TIME 3Y;345D;4x10^3AD || EARTH TIME : N/A <<END>>";
-        main_queue.queue(unclick, {"element":"story"})
+        main_queue.queue(unclick, {"element":"story"});
 		main_queue.queue(PLBL, {"element":"story", "story":story, "speed":50});
-        main_queue.queue(click, {"element":"story"})
+        main_queue.queue(click, {"element":"story"});
 		storyStage=1;
 	}
 	else if (storyStage==1){
@@ -153,7 +153,7 @@ function smelt(resource, product){
 function machineOn(machine, machineSwitchElement){
 	if(machine.onOff==1){
 		machine.onOff = 0; 
-		machineSwitchElement.innerHTML="STATUS : OFF"
+		machineSwitchElement.innerHTML="STATUS : OFF";
 		machineSwitchElement.style.background="red"
 	}
 	else if(machine.onOff==0){
@@ -259,7 +259,7 @@ function researchAutoSmelting(){
 		ironPlate.amount = ironPlate.amount -25;
 		document.getElementById("smelters").style.display = "table-row";
 		document.getElementById("smelterSwitches").style.display = "table-row";
-		document.getElementById("currentResearch").innerHTML="Research New Extraction Techniques(+new ores, -1000 coke coal, -1000 hard stone, -1000 copper plate, -1000 iron plate)"
+		document.getElementById("currentResearch").innerHTML="Research New Extraction Techniques(+new ores, -1000 coke coal, -1000 hard stone, -1000 copper plate, -1000 iron plate)";
 		document.getElementById("currentResearch").onclick = researchTeirII;
 		document.getElementById("story").innerHTML="";
 		printLetterByLetter("story", "Just move this part over here ... lets power this the same way.", 100);
@@ -329,4 +329,4 @@ smeltCraft(stoneSmelter, stone, hardStone);
 smeltCraft(copperSmelter, copper, copperPlate);
 smeltCraft(ironSmelter, iron, ironPlate);
 smeltCraft(coalSmelter, coal, cokeCoal);
-}, 1000)
+}, 1000);

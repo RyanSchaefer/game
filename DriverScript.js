@@ -7,7 +7,7 @@
 
 
 
-//Don't touch the amount part ;) that would be cheating 
+// Resource objects
 var stone  = {amount:0};
 var copper = {amount:0};
 var iron   = {amount:0};
@@ -38,6 +38,7 @@ var eventCompleted=0;
 function storyAdvance(){
 	document.getElementById("story").innerHTML="";
 	story="";
+
 	if (storyStage==0){
 		story="<<Get Time>> SYSTEM TIME 3Y;345D;4x10^3AD || EARTH TIME : N/A <<END>>";
 		printLetterByLetter("story", story, 50);
@@ -54,13 +55,13 @@ function storyAdvance(){
 	storyStage = 3;
 	}
 	else if (storyStage==3){
-	document.getElementById("push").style.display="none";
-	document.getElementById("resourceGrid").style.display="table";
-	document.getElementById("mineTitle").style.display="block";
-	fadeIn("mineTitle", 20);
-	fadeIn("teirIresources", 50);
-	document.getElementById("story").style.opacity=0;
-	storyStage = 4;
+        document.getElementById("push").style.display="none";
+        document.getElementById("resourceGrid").style.display="table";
+        document.getElementById("mineTitle").style.display="block";
+        fadeIn("mineTitle", 20);
+        fadeIn("teirIresources", 50);
+        document.getElementById("story").style.opacity=0;
+        storyStage = 4;
 	}
 }
 
@@ -68,66 +69,95 @@ function storyAdvance(){
 
 /*BASIC FUNCTIONS*/
 function updateAmount(varAmount, unit, elementUpdated, white){
-	if(white==0){
+    /*
+    * varAmount: int
+    * unit: str
+    * elementUpdated: elem
+    * white: int
+    * */
+	if (white==0) {
 		document.getElementById(elementUpdated).innerHTML = varAmount.amount+" "+unit;
 	}
-	else if(white==1){
+	else if (white==1) {
 		document.getElementById(elementUpdated).innerHTML ="<p class=\"white\">"+varAmount.amount+" "+unit+"</p>";
 	}
 }
 
-function smelt(resource, product){
-	if(product.special==1&&coal.amount>=2){
-	cokeCoal.amount++;
-	coal.amount=coal.amount - 2;
+function smelt(resource, product) {
+    /*
+    * resource: object
+    * product: object
+    * */
+	if (product.special==1 && coal.amount>=2) {
+        cokeCoal.amount++;
+        coal.amount=coal.amount - 2;
 	}
 	else if (product.special==null){
-	if (coal.amount>=1&&resource.amount>=1){
-			 product.amount++;
-			    coal.amount--;
-			resource.amount--;
-		}
+        if (coal.amount>=1 && resource.amount>=1){
+                 product.amount++;
+                 coal.amount--;
+                 resource.amount--;
+        }
 	}
 }
 
-function machineOn(machine, machineSwitchElement){
-	if(machine.onOff==1){
+function machineOn(machine, machineSwitchElement) {
+    /*
+    * machine: object
+    * machineSwitchElement: element
+    * */
+	if (machine.onOff==1) {
 		machine.onOff = 0; 
-		machineSwitchElement.innerHTML="STATUS : OFF"
+		machineSwitchElement.innerHTML="STATUS : OFF";
 		machineSwitchElement.style.background="red"
 	}
-	else if(machine.onOff==0){
+	else if (machine.onOff==0) {
 		machine.onOff = 1;
 		machineSwitchElement.innerHTML="STATUS : ON";
 		machineSwitchElement.style.background ="green";
 	}
 }
 
-function addTeirIMachine(copperPlateCost, ironPlateCost, product){
+function addTeirIMachine(copperPlateCost, ironPlateCost, product) {
+    /*
+    * copperPlateCost: int
+    * ironPlateCost: int
+    * product: object
+    * */
 	if(ironPlate.amount>=ironPlateCost&&copperPlateCost<=copperPlate.amount){
 		product.amount++;
-		ironPlate.amount   = ironPlate.amount - ironPlateCost;
+		ironPlate.amount = ironPlate.amount - ironPlateCost;
 		copperPlate.amount = copperPlate.amount - copperPlateCost;
 	}
 }
 
-function smeltCraft(machine, cost, product){
-	if(coal.amount >= machine.amount && cost.amount>=machine.amount&&machine.onOff==1){
+function smeltCraft(machine, cost, product) {
+    /*
+    * machine: object
+    * cost: object
+    * product: object
+    * */
+	if (coal.amount >= machine.amount && cost.amount>=machine.amount && machine.onOff==1) {
 		coal.amount= coal.amount - machine.amount;
 		cost.amount= cost.amount - machine.amount;
 		product.amount = product.amount + machine.amount;
 	}
 }
 
-function mine(machine, product){
-	if(coal.amount >= machine.amount && machine.onOff==1){
-		coal.amount= coal.amount - machine.amount;
-		product.amount= product.amount + machine.amount*2;
+function mine(machine, product) {
+    /*
+    * machine: object
+    * product: object
+    * */
+	if (coal.amount >= machine.amount && machine.onOff==1) {
+		coal.amount = coal.amount - machine.amount;
+		product.amount = product.amount + machine.amount*2;
 	}
 }
 
 /*STORY ANIMATIONS*/
 function printLetterByLetter(destination, message, speed){
+    //adds one letter at a time to an element at a given speed using intervals
 	var p = printLetterByLetter.intervals;
 	if (!p)
 		printLetterByLetter.intervals = p = {};
@@ -152,8 +182,9 @@ function printLetterByLetter(destination, message, speed){
 }
 
 function fadeIn(element, speed){
-var fade=0;
-	var interval2 =setInterval(function(){
+    // fades in an element
+    var fade=0;
+	var interval2 = setInterval(function(){
 		fade=fade+.01;
 		document.getElementById(element).style.opacity=fade;
 		if (fade > 1){
@@ -163,11 +194,13 @@ var fade=0;
 }
 
 function clearText(element){
-element.innerHTML="";
+    // erases an elements inside
+    element.innerHTML="";
 }
 
 /* RESEARCH */
 function researchSmelting(){
+    // unlocks smelting and animates the process
 	if (stone.amount>=10&&iron.amount>=10&&copper.amount>=10){
 		document.getElementById("tierIIresources").style.display="table-row";
 		fadeIn("tierIIresources", 20);
@@ -182,6 +215,7 @@ function researchSmelting(){
 }
 
 function researchMines(){
+    // unlocks mines and animates the process
 	if (copperPlate.amount>=20&&ironPlate.amount>=20){
 		copperPlate.amount = copperPlate.amount - 20;
 		ironPlate.amount = ironPlate.amount - 20;
@@ -194,12 +228,13 @@ function researchMines(){
 	}
 }
 function researchAutoSmelting(){
+    // unlocks smelting machines and animates the process
 	if (copperPlate.amount>=25&&ironPlate.amount>=25){
 		copperPlate.amount = copperPlate.amount - 25;
 		ironPlate.amount = ironPlate.amount -25;
 		document.getElementById("smelters").style.display = "table-row";
 		document.getElementById("smelterSwitches").style.display = "table-row";
-		document.getElementById("currentResearch").innerHTML="Research New Extraction Techniques(+new ores, -1000 coke coal, -1000 hard stone, -1000 copper plate, -1000 iron plate)"
+		document.getElementById("currentResearch").innerHTML="Research New Extraction Techniques(+new ores, -1000 coke coal, -1000 hard stone, -1000 copper plate, -1000 iron plate)";
 		document.getElementById("currentResearch").onclick = researchTeirII;
 		document.getElementById("story").innerHTML="";
 		printLetterByLetter("story", "Just move this part over here ... lets power this the same way.", 100);
@@ -207,6 +242,7 @@ function researchAutoSmelting(){
 }
 
 function researchTeirII(){
+    // researches tier two resources
 	if(copperPlate.amount>=1000&&hardStone.amount>=1000&&ironPlate.amount>=1000&&cokeCoal.amount>=1000){
 		cokeCoal.amount = cokeCoal.amount - 1000;
 		hardStone.amount = hardStone.amount - 1000;
@@ -227,46 +263,49 @@ function researchTrade(){
 }
 
 window.setInterval(function tick(){
-updateAmount(stone, "stone", "stone", 0);
-updateAmount(iron, "iron", "iron", 0);
-updateAmount(copper, "copper", "copper", 0);
-updateAmount(coal, "coal", "coal", 1);
-updateAmount(hardStone, "hard stones", "smeltStone", 0);
-updateAmount(copperPlate, "copper plates", "smeltCopper",0 );
-updateAmount(ironPlate, "iron plates", "smeltIron", 0);
-updateAmount(cokeCoal, "coke coal", "smeltCoal", 0);
-updateAmount(ironMine, "iron mines", "ironMine", 0);
-updateAmount(coalMine, "coal mines", "coalMine", 0);
-updateAmount(stoneMine, "stone mines", "stoneMine", 0);
-updateAmount(copperMine, "copper mines", "copperMine", 0);
-updateAmount(stoneSmelter, "stone smelters", "stoneSmelter", 0);
-updateAmount(copperSmelter, "copper smelters", "copperSmelter", 0);
-updateAmount(ironSmelter, "iron smelters", "ironSmelter", 0);
-updateAmount(coalSmelter, "coal smelters", "coalSmelter", 0);
-updateAmount(quartz, "quartz", "mineQuartz", 0);
-updateAmount(tin, "tin", "mineTin", 0);
-updateAmount(anthracite, "anthracite", "mineAnthracite", 1);
-updateAmount(gold, "gold", "mineGold", 0);
-if (stone.amount>=10||coal.amount>=10||copper.amount>=10||iron.amount>=10){
-	if(storyStage==4){
-		if(eventCompleted==0){
-	document.getElementById("story").innerHTML="Even the greatest of minds continue to learn.";
-		document.getElementById("research").style.display="block";
-		fadeIn("story", 20);
-		fadeIn("research", 20);
-		eventCompleted=1;
-		}
-	}
-}
+    // updates each element with the number of resources that the user has
+    // this will be changed in a later version
+    updateAmount(stone, "stone", "stone", 0);
+    updateAmount(iron, "iron", "iron", 0);
+    updateAmount(copper, "copper", "copper", 0);
+    updateAmount(coal, "coal", "coal", 1);
+    updateAmount(hardStone, "hard stones", "smeltStone", 0);
+    updateAmount(copperPlate, "copper plates", "smeltCopper",0 );
+    updateAmount(ironPlate, "iron plates", "smeltIron", 0);
+    updateAmount(cokeCoal, "coke coal", "smeltCoal", 0);
+    updateAmount(ironMine, "iron mines", "ironMine", 0);
+    updateAmount(coalMine, "coal mines", "coalMine", 0);
+    updateAmount(stoneMine, "stone mines", "stoneMine", 0);
+    updateAmount(copperMine, "copper mines", "copperMine", 0);
+    updateAmount(stoneSmelter, "stone smelters", "stoneSmelter", 0);
+    updateAmount(copperSmelter, "copper smelters", "copperSmelter", 0);
+    updateAmount(ironSmelter, "iron smelters", "ironSmelter", 0);
+    updateAmount(coalSmelter, "coal smelters", "coalSmelter", 0);
+    updateAmount(quartz, "quartz", "mineQuartz", 0);
+    updateAmount(tin, "tin", "mineTin", 0);
+    updateAmount(anthracite, "anthracite", "mineAnthracite", 1);
+    updateAmount(gold, "gold", "mineGold", 0);
+    if (stone.amount>=10||coal.amount>=10||copper.amount>=10||iron.amount>=10){
+        if(storyStage==4){
+            if(eventCompleted==0){
+        document.getElementById("story").innerHTML="Even the greatest of minds continue to learn.";
+            document.getElementById("research").style.display="block";
+            fadeIn("story", 20);
+            fadeIn("research", 20);
+            eventCompleted=1;
+            }
+        }
+    }
 }, 1);
 
 window.setInterval(function check(){
-mine(stoneMine, stone);
-mine(copperMine, copper);
-mine(ironMine, iron);
-mine(coalMine, coal);
-smeltCraft(stoneSmelter, stone, hardStone);
-smeltCraft(copperSmelter, copper, copperPlate);
-smeltCraft(ironSmelter, iron, ironPlate);
-smeltCraft(coalSmelter, coal, cokeCoal);
-}, 1000)
+    // runs the mines
+    mine(stoneMine, stone);
+    mine(copperMine, copper);
+    mine(ironMine, iron);
+    mine(coalMine, coal);
+    smeltCraft(stoneSmelter, stone, hardStone);
+    smeltCraft(copperSmelter, copper, copperPlate);
+    smeltCraft(ironSmelter, iron, ironPlate);
+    smeltCraft(coalSmelter, coal, cokeCoal);
+}, 1000);

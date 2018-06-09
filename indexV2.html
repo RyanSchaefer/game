@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.google.apis.com/css?family=Curtive+Mono" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typeit@5.5.0/dist/typeit.min.js"></script>
+    <script src="DriverScriptV2.js"></script>
+    <title>#Operation Last Hope#</title>
+</head>
+
+<body>
+<div id="screen">
+    <div id="story" class="clickable">Click to begin.</div>
+
+    <div id="hintSection"></div>
+
+    <div id="resources" class="no-select">
+        <h1 class="sectionTitle">Resources</h1>
+        <table id="resourceGrid" class="pointer">
+
+            <tr id='tierIResources'>
+                <td id="stone" data-substrates="{}">0</td>
+                <td id="copper" data-substrates="{}">0</td>
+                <td id="iron" data-substrates="{}">0</td>
+                <td id="coal" data-substrates="{}">0</td>
+            </tr>
+
+            <tr id="tierIIResources">
+                <td id="hardStone" data-substrates='{"stone": 1, "coal": 1}'>0</td>
+                <td id="copperPlate" data-substrates='{"copper": 1, "coal": 1}'>0</td>
+                <td id="ironPlate" data-substrates='{"iron": 1, "coal": 1}'>0</td>
+                <td id="cokeCoal" data-substrates='{"coal": 2}'>0</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div id="machines" class="no-select">
+
+        <h1 class="sectionTitle">Machines</h1>
+
+        <table>
+
+            <tr class="pointer" id="mines">
+                <td id="stoneMine"
+                    data-machine-substrates='{"copperPlate": 10, "ironPlate": 10}'
+                    data-product-substrates='{"stone":1}'
+                    data-products='{"hardStone":1}'
+                >0</td>
+                <td id="copperMine"
+                    data-machine-substrates='{"copperPlate": 10, "ironPlate": 10}'
+                    data-product-substrates='{"copper":1}'
+                    data-products='{"copperPlate":1}'
+                >0</td>
+                <td id="ironMine"
+                    data-machine-substrates='{"copperPlate": 10, "ironPlate": 10}'
+                    data-product-substrates='{"iron":1}'
+                    data-products='{"hardStone":1}'
+                >0</td>
+                <td id="coalMine"
+                    data-machine-substrates='{"copperPlate": 10, "ironPlate": 10}'
+                    data-product-substrates='{"coal":1}'
+                    data-products='{"cokeCoal":1}'
+                >0</td>
+            </tr>
+
+            <tr class="pointer" id="mineSwitches">
+                <td data-machine='stoneMine'>OFF</td>
+                <td data-machine="copperMine">OFF</td>
+                <td data-machine="ironMine">OFF</td>
+                <td data-machine="coalMine">OFF</td>
+            </tr>
+
+            <tr class="pointer" id="fuelSources">
+                <td data-machine="stoneMine"></td>
+                <td data-machine="copperMine"></td>
+                <td data-machine="ironMine"></td>
+                <td data-machine="coalMine"></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div id="upgrades">
+
+        <h1 class="sectionTitle">Upgrades</h1>
+
+        <div id="upgrade-list">
+            <p id="machineUpgrades"><b>Research Smelthing</b> {-30 stone, +smelting}</p>
+            <p id="fuelSourceUpgrade">Research Fuel Sources (-50 hard stone, +fuels}</p>
+            <p id="biology">Research Biology (-500 hard stone, -500 iron plates, -500 copper plates, +life}</p>
+            <p id="cloning">Research Cloning {+humans}</p>
+            <p id="generations">Research Generations {+time travel}</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
